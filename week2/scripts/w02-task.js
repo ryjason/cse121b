@@ -21,10 +21,10 @@ const imageElement = document.querySelector('img');
 
 
 /* Step 4 - Adding Content */
-nameElement.innerHTML = '<strong> ${fullName} </strong>';
+nameElement.innerHTML = `<strong> ${fullName} </strong>`;
 yearElement.textContent = currentYear;
 imageElement.setAttribute('src',profilePicture);
-imageElement.setAttribute('alt','Profile Image of ${fullName}');
+imageElement.setAttribute('alt',`Profile Image of ${fullName}`);
 
 
 
@@ -35,9 +35,13 @@ imageElement.setAttribute('alt','Profile Image of ${fullName}');
 /* Step 5 - Array */
 let list = ['Pizza','Sushi','Tacos','Chocolate Cake', 'Spinach Salad'];
 foodElement.textContent = list;
-let list2 = ['Chicken Curry','Ice Cream'];
+let list2 = ['Chicken Curry'];
 list.push(list2);
-foodElement.innerHTML += '<br>${favFoods}';
+foodElement.innerHTML += `<br>${list}`;
+list.shift()
+foodElement.innerHTML += `<br>${list}`;
+list.pop()
+foodElement.innerHTML += `<br>${list}`;
 
 
 
