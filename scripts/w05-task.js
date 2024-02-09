@@ -8,17 +8,13 @@ let templeList = {};
 const displayTemples = (templeList) => {
     templeList.forEach((temple) => {
         const article = document.createElement("article");
-
         const h3 = document.createElement("h3");
         h3.textContent = temple.templeName;
-
         const img = document.createElement("img");
         img.src = temple.imageUrl;
         img.alt = "location";
-
         article.appendChild(h3);
         article.appendChild(img);
-
         templesElement.appendChild(article);
     });
 };
@@ -26,9 +22,7 @@ const displayTemples = (templeList) => {
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
     const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
-    if (response.ok){
-        templeList = await response.json();
-    }
+    templeList = await response.json();
     displayTemples(templeList);
 };
 
@@ -45,19 +39,15 @@ const filterTemples = (temples) => {
         case "utah":
             displayTemples(temples.filter(temple => temple.location.toLowerCase().includes("utah")));
             break;
-
         case "notutah":
             displayTemples(temples.filter(temple => !temple.location.toLowerCase().includes("utah")));
             break;
-
         case "older":
             displayTemples(temples.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1)));
             break;
-
         case "all":
             displayTemples(temples);
             break;
-
         default:
             break;
     }
@@ -65,6 +55,5 @@ const filterTemples = (temples) => {
 
 /* Event Listener */
 document.querySelector("#filtered").addEventListener("change", () => { filterTemples(templeList) });
-
 getTemples();
 
