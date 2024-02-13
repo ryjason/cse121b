@@ -6,12 +6,15 @@ const displayCameras = (cameraList) => {
     cameraList.forEach((camera) => {
         const article = document.createElement("article");
         const h3 = document.createElement("h3");
+        const h4 = document.createElement("h4");
         h3.textContent = camera.cameraName;
+        h4.textContent = camera.cost;
         const img = document.createElement("img");
         img.src = camera.imageUrl;
-        img.alt = "brand";
+        img.alt = "img";
         article.appendChild(h3);
         article.appendChild(img);
+        article.appendChild(h4);
         camerasElement.appendChild(article);
     });
 };
@@ -33,14 +36,17 @@ const filterCameras = (cameras) => {
     reset();
     const filter = document.getElementById("filtered").value;
     switch (filter) {
-        case "utah":
-            displayCameras(cameras.filter(camera => camera.location.toLowerCase().includes("utah")));
+        case "sony":
+            displayCameras(cameras.filter(camera => camera.brand.toLowerCase().includes("sony")));
             break;
-        case "notutah":
-            displayCameras(cameras.filter(camera => !camera.location.toLowerCase().includes("utah")));
+        case "fuji":
+            displayCameras(cameras.filter(camera => camera.brand.toLowerCase().includes("fujifilm")));
             break;
-        case "older":
-            displayCameras(cameras.filter(camera => new Date(camera.dedicated) < new Date(1950, 0, 1)));
+        case "nikon":
+            displayCameras(cameras.filter(camera => camera.brand.toLowerCase().includes("nikon")));
+            break;
+        case "canon":
+            displayCameras(cameras.filter(camera => camera.brand.toLowerCase().includes("canon")));
             break;
         case "all":
             displayCameras(cameras);
