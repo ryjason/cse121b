@@ -21,7 +21,7 @@ const displayTemples = (templeList) => {
 
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+    const response = await fetch("https://ryjason.github.io/cse121b/finalapi.json");
     templeList = await response.json();
     displayTemples(templeList);
 };
