@@ -348,7 +348,7 @@ form {
     margin-top: 3em;
 }
 
-#cameras {
+#camera {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: .5rem;
@@ -356,7 +356,7 @@ form {
     margin-bottom: 3%;
 }
 
-#cameras article {
+#camera article {
     height: 250px;
     margin: .6rem;
     border: 1px solid rgba(0, 0, 0, .1);
@@ -368,18 +368,18 @@ form {
     justify-content: center;
 }
 
-#cameras h3 {
+#camera h3 {
     margin-top: 0.3rem;
     margin-bottom: 0.4rem;
 }
 
-#cameras h4 {
+#camera h4 {
     color: navy;
     font-size: smaller;
 }
 
 
-#cameras img {
+#camera img {
     width: 250px;
     height: 180px;
     box-shadow: 0 0 30px #777;
